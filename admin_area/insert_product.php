@@ -1,3 +1,54 @@
+
+<?php
+ include("../includes/connect.php");
+
+ if(isset($_POST['insert_product'])){//button onclick or submit
+    $product_title = $_POST['product_title'];
+    $decription = $_POST['decription'];
+    $product_keywords = $_POST['product_keywords'];
+    $product_category = $_POST['product_category'];
+    $product_brands = $_POST['product_brands'];
+    $product_price = $_POST['product_price'];
+    $product_status = 'true';
+
+    // accessing image
+    $product_image1 = $_FILES['product_image1']['name'];
+    $product_image2 = $_FILES['product_image2']['name'];
+    $product_image3 = $_FILES['product_image3']['name'];
+
+    // accessing image tmp name
+    $temp_image1 = $_FILES['product_image1']['tmp_name'];
+    $temp_image2 = $_FILES['product_image2']['tmp_name'];
+    $temp_image3 = $_FILES['product_image3']['tmp_name'];
+
+    // checking empty condition
+    if($product_title == '' or $decription == '' or  $product_keywords == '' or $product_category == '' or
+    $product_brands == '' or $product_price == '' or $product_image1 == '' or $product_image2 == '' or $product_image3 == ''){
+      echo "<script> alert('please fill available fildes!')</script>";
+      exit();
+    }else{ //move into dynamic folder
+        move_uploaded_file($temp_image1, "./product_images/$product_image1");
+        move_uploaded_file($temp_image2, "./product_images/$product_image2");
+        move_uploaded_file($temp_image3, "./product_images/$product_image3");
+
+        //insert query
+        $insert_products = "insert into `products` (product_title, product_description,
+                             product_keywords, category_id, brand_id, product_image1,
+                             product_image2, product_image3, product_price, date, status)
+                       values ('$product_title','$decription','$product_keywords','$product_category',
+                       '$product_brands','$product_image1','$product_image2','$product_image3','$product_price',
+                       NOW(), '$product_status')";
+
+                       $result_query = mysqli_query($con, $insert_products);
+                       if($result_query){
+                        echo "<script> alert('Successfully inserted the products')</script>";
+
+                       }
+    }
+
+ }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,24 +90,34 @@
             <input type="text" name="product_keywords" id="product_keywords" class="form-control"
             placeholder="Enter product keywords" autocomplete="off" required="required">
         </div>
-        <!-- Brands -->
+        <!-- categories -->
         <div class="form-outline mb-4 w-50 m-auto">
             <select name="product_brands" id="" class="form-select" >
                 <option value="">Select a Category</option>
-                <option value="">Category1</option>
-                <option value="">Category2</option>
-                <option value="">Category3</option>
-                <option value="">Category4</option>
+                <?php
+                  $select_query = "select * from `categories`";
+                  $result_query = mysqli_query($con, $select_query);
+                  while($row = mysqli_fetch_assoc($result_query)){
+                    $category_title = $row['category_title'];
+                    $category_id = $row['category_id'];
+                    echo "<option value='$category_id'>$category_title</option>";
+                  }
+                ?>
             </select>
         </div>
-        <!-- categories -->
+        <!-- Brands -->
         <div class="form-outline mb-4 w-50 m-auto">
             <select name="product_category" id="" class="form-select" >
                 <option value="">Select a Brands</option>
-                <option value="">Brands1</option>
-                <option value="">Brands2</option>
-                <option value="">Brands3</option>
-                <option value="">Brands4</option>
+                <?php
+                  $select_query = "select * from `brands`";
+                  $result_query = mysqli_query($con, $select_query);
+                  while($row = mysqli_fetch_assoc($result_query)){
+                    $brand_title = $row['brand_title'];
+                    $brand_id = $row['brand_id'];
+                    echo "<option value='$brand_id'>$brand_title</option>";
+                  }
+                ?>
             </select>
         </div>
         <!-- Image 1 -->
@@ -80,9 +141,9 @@
             <input type="text" name="product_price" id="product_price" class="form-control"
             placeholder="Enter product price" autocomplete="off" required="required">
         </div>
-        <!-- Price -->
+        <!-- submit -->
         <div class="form-outline mb-4 w-50 m-auto">
-           <input type="submit" name="insert_products" class="btn btn-info mb-3 px-3" value="Insert Products">
+           <input type="submit" name="insert_product" class="btn btn-info mb-3 px-3" value="Insert Products">
         </div>
         
      </form>
