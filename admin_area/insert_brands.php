@@ -16,11 +16,10 @@ if (isset($_POST['insert_brand'])) {
             echo "<script> alert('Brand has been inserted successfully!') </script>";
         }
     }
-  
 }
 ?>
 
-
+<h2 class="text-center">Insert Brands</h2>
 
 <form action="" method="post" class="mb-2">
     <div class="input-group w-90 mb-2">

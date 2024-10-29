@@ -15,13 +15,11 @@ if (isset($_POST['insert_cat'])) {
         if ($result) {
             echo "<script> alert('Category has been inserted successfully!') </script>";
         }
-    }
-  
+    } 
 }
-
-
 ?>
 
+<h2 class="text-center">Insert Categories</h2>
 
 <form action="" method="post" class="mb-2">
     <div class="input-group w-90 mb-2">
