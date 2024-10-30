@@ -92,7 +92,7 @@
         </div>
         <!-- categories -->
         <div class="form-outline mb-4 w-50 m-auto">
-            <select name="product_brands" id="" class="form-select" >
+            <select name="product_category" id="" class="form-select" ><!--product_category will return <option value=""> -->
                 <option value="">Select a Category</option>
                 <?php
                   $select_query = "select * from `categories`";
@@ -107,7 +107,7 @@
         </div>
         <!-- Brands -->
         <div class="form-outline mb-4 w-50 m-auto">
-            <select name="product_category" id="" class="form-select" >
+            <select name="product_brands" id="" class="form-select" >
                 <option value="">Select a Brands</option>
                 <?php
                   $select_query = "select * from `brands`";
