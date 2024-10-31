@@ -90,8 +90,9 @@ include("functions/commen_function.php");
                     <?php
                     //calling function
 
-                    getproduct();//cool idea
-                    
+                    getproducts();//cool idea
+                    get_unique_categories();
+                    get_unique_brands();
                     ?>
                     <!-- row end -->
                 </div>
