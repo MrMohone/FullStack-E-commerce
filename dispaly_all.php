@@ -90,7 +90,7 @@ include("functions/commen_function.php");
                     <?php
                     //calling function
 
-                    getproducts();//cool idea
+                    get_all_products();//cool ideaget_all_products()
                     get_unique_categories();
                     get_unique_brands();
                     ?>
@@ -128,8 +128,8 @@ include("functions/commen_function.php");
         </div>
 
         <!-- last child -->
-      <!-- include footer -->
-      <?php include("./includes/footer.php")  ?>
+       <!-- include footer -->
+        <?php include("./includes/footer.php")  ?>
     </div>
 
 
