@@ -55,7 +55,7 @@ include("functions/commen_function.php");
                         </li>
 
                     </ul>
-                    <form class="d-flex" role="search" action="search_product.php" method="get">
+                    <form class="d-flex" role="search" action="" method="get">
                         <input class="form-control me-2" type="search"  name="search_data" placeholder="Search" aria-label="Search">
                          <input type="submit"  name="search_data_product" value="Search" class="btn btn-outline-ligth">
                     </form>
@@ -90,8 +90,8 @@ include("functions/commen_function.php");
                     <?php
                     //calling function
 
-                    getproducts();//cool idea
-                    get_unique_categories();
+                    search_product();
+                    get_unique_categories();//we can remove this two lone of code
                     get_unique_brands();
                     ?>
                     <!-- row end -->
