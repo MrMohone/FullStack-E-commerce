@@ -48,7 +48,7 @@ include("functions/commen_function.php");
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-arrow-down"></i><sup>1</sup></a>
+                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-arrow-down"></i><sup> <?php cart_item(); ?> </sup></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Total Price:100/-</a>
@@ -56,13 +56,16 @@ include("functions/commen_function.php");
 
                     </ul>
                     <form class="d-flex" role="search" action="search_product.php" method="get">
-                        <input class="form-control me-2" type="search"  name="search_data" placeholder="Search" aria-label="Search">
-                         <input type="submit"  name="search_data_product" value="Search" class="btn btn-outline-ligth">
+                        <input class="form-control me-2" type="search" name="search_data" placeholder="Search" aria-label="Search">
+                        <input type="submit" name="search_data_product" value="Search" class="btn btn-outline-ligth">
                     </form>
                 </div>
             </div>
         </nav>
-
+        <!-- calling cart function -->
+        <?php
+        cart();
+        ?>
         <!-- second child -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
             <ul class="navbar-nav me-auto">
@@ -118,18 +121,18 @@ include("functions/commen_function.php");
                             <h4>Categories</h4>
                         </a>
                     </li>
-                    
-                <?php
-                //calling function
-                   getcategories();
+
+                    <?php
+                    //calling function
+                    getcategories();
                     ?>
                 </ul>
             </div>
         </div>
 
         <!-- last child -->
-      <!-- include footer -->
-      <?php include("./includes/footer.php")  ?>
+        <!-- include footer -->
+        <?php include("./includes/footer.php")  ?>
     </div>
 
 
