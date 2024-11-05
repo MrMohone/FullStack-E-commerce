@@ -354,4 +354,5 @@
                 echo $total_price;
             }
         
+            // 
         ?> 
