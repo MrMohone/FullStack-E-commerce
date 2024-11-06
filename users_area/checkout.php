@@ -1,6 +1,6 @@
 <!-- connect file -->
 <?php
-include("includes/connect.php");
+include("../includes/connect.php");
 ?>
 
 <!DOCTYPE html>
@@ -35,10 +35,10 @@ include("includes/connect.php");
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                            <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="dispaly_all.php">Products</a>
+                            <a class="nav-link" href="../dispaly_all.php">Products</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Register</a>
@@ -79,7 +79,7 @@ include("includes/connect.php");
                 <div class="row ">
                    <?php
                    if(!isset($_SESSION['username'])){
-                    include("./users_area/user_login.php");
+                    include("user_login.php");
                    }
                    else{
                     include("payment.php");
@@ -92,7 +92,7 @@ include("includes/connect.php");
 
         <!-- last child -->
       <!-- include footer -->
-      <?php include("./includes/footer.php")  ?>
+      <?php include("../includes/footer.php")  ?>
     </div>
 
 

@@ -162,7 +162,7 @@ include("functions/commen_function.php");
                     if($result_count > 0){
                         echo "<h4 class='px-3'>Subtotal: <strong class='text-info'>$total_price /-</strong></h4>
                     <input type='submit' value='Continue shopping' name='continue_shopping' class='bg-info px-3 py-2 border-0 mx-3'>
-                    <button class='bg-secondary px-3 py-2 border-0'><a href='checkout.php' class='text-light text-decoration-none'>Checkout</button></a>";
+                    <button class='bg-secondary px-3 py-2 border-0'><a href='./users_area/checkout.php' class='text-light text-decoration-none'>Checkout</button></a>";
                     }else{
                        echo "<input type='submit' value='Continue shopping' name='continue_shopping' class='bg-info px-3 py-2 border-0 mx-3'> ";
                     }
