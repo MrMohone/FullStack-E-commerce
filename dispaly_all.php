@@ -20,6 +20,11 @@ include("functions/commen_function.php");
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- css -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 
 <body>
@@ -42,13 +47,13 @@ include("functions/commen_function.php");
                             <a class="nav-link" href="dispaly_all.php">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Register</a>
+                            <a class="nav-link" href="./users_area/user_registration.php">Register</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-arrow-down"></i><sup> <?php cart_item(); ?> </sup></a>
+                            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-arrow-down"></i><sup> <?php cart_item(); ?> </sup></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Total Price: <?php total_cart_price(); ?> /- </a>
