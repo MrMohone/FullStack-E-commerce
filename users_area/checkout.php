@@ -1,6 +1,7 @@
 <!-- connect file -->
 <?php
 include("../includes/connect.php");
+include("../functions/commen_function.php")
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +62,7 @@ include("../includes/connect.php");
                     <a class="nav-link" href="#">Welcome Guest</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="../users_area/user_login.php">Login</a>
                 </li>
             </ul>
         </nav>
@@ -82,7 +83,7 @@ include("../includes/connect.php");
                     include("user_login.php");
                    }
                    else{
-                    include("../payment.php");
+                    include("payment.php");
                    }
                    ?>
                 </div>
