@@ -1,7 +1,8 @@
 <!-- connect file -->
 <?php
 include("../includes/connect.php");
-include("../functions/commen_function.php")
+// include("../functions/commen_function.php");
+   @session_start();//if only this page is active, start setion
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +21,13 @@ include("../functions/commen_function.php")
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- css -->
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .logo{
+            width: 5%;
+            height: 4%;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,7 +35,7 @@ include("../functions/commen_function.php")
         <!-- first child -->
         <nav class="navbar navbar-expand-lg navbar-light bg-info ">
             <div class="container-fluid">
-                <img src="./images//logo.jpg" alt="" class="logo">
+                <img src="../images/logo.jpg" alt="" class="logo">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +50,7 @@ include("../functions/commen_function.php")
                             <a class="nav-link" href="../dispaly_all.php">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Register</a>
+                            <a class="nav-link" href="./user_registration.php">Register</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
@@ -58,12 +66,23 @@ include("../functions/commen_function.php")
         <!-- second child -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Welcome Guest</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../users_area/user_login.php">Login</a>
-                </li>
+              
+                <!-- login and logout -->
+                <?php
+                if(!isset($_SESSION['username'])){
+                    echo " <li class='nav-item'>
+                    <a class='nav-link' href='#'>Welcome Guest</a> </li>";
+                 }else{
+                    echo "<li class='nav-item'><a class='nav-link' href='#'>Welcome ".$_SESSION['username']."</a> </li>";
+                 }
+
+                if(!isset($_SESSION['username'])){
+                   echo "<li class='nav-item'><a class='nav-link' href='../users_area/user_login.php'>Login</a> </li>";
+                }else{
+                   echo "<li class='nav-item'><a class='nav-link' href='../users_area/user_logout.php'>Logout</a> </li>";
+                }
+                ?>
+                
             </ul>
         </nav>
         <!-- thitd child -->

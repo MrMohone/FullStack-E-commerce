@@ -2,6 +2,7 @@
 <?php
 include("includes/connect.php");
 include("functions/commen_function.php");
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +54,6 @@ include("functions/commen_function.php");
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                        </li>
                             <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-arrow-down"></i><sup> <?php cart_item(); ?></sup></a>
                         </li>
                         <li class="nav-item">
@@ -75,12 +75,22 @@ include("functions/commen_function.php");
         <!-- second child -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Welcome Guest</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./users_area/user_login.php">Login</a>
-                </li>
+               
+                <!-- login and logout -->
+                <?php
+                 if(!isset($_SESSION['username'])){
+                    echo " <li class='nav-item'>
+                    <a class='nav-link' href='#'>Welcome Guest</a> </li>";
+                 }else{
+                    echo "<li class='nav-item'><a class='nav-link' href='#'>Welcome ".$_SESSION['username']."</a> </li>";
+                 }
+
+                if(!isset($_SESSION['username'])){
+                   echo "<li class='nav-item'><a class='nav-link' href='users_area/user_login.php'>Login</a> </li>";
+                }else{
+                   echo "<li class='nav-item'><a class='nav-link' href='users_area/user_logout.php'>Logout</a> </li>";
+                }
+                ?>
             </ul>
         </nav>
         <!-- thitd child -->

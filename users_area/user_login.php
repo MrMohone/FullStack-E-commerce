@@ -2,6 +2,8 @@
 <?php
 include("../includes/connect.php");
 include("../functions/commen_function.php");
+
+session_start();
 ?>
 
 
@@ -88,7 +90,7 @@ include("../functions/commen_function.php");
                  $_SESSION['username'] = $user_username;
                  echo "<script>alert('Login successfully')</script>";
                  echo "<script>window.open('profile.php', '_self')</script>";
-                }else{
+            }else{
                 $_SESSION['username'] = $user_username;
                 echo "<script>alert('Login successfully')</script>";
                 echo "<script>window.open('payment.php', '_self')</script>";
