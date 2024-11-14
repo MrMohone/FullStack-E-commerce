@@ -10,6 +10,8 @@ include("../functions/commen_function.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>payment page</title>
+        <!-- bootstrap css link -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
        .payment_img{
             width: 60%;

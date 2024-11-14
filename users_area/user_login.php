@@ -3,7 +3,7 @@
 include("../includes/connect.php");
 include("../functions/commen_function.php");
 
-session_start();
+// session_start();
 ?>
 
 
