@@ -94,7 +94,7 @@ session_start();
                  }
 
                 if(!isset($_SESSION['username'])){
-                   echo "<li class='nav-item'><a class='nav-link' href='users_area/user_login.php'>Login</a> </li>";
+                   echo "<li class='nav-item'><a class='nav-link' href='users_area/user_loggiin.php'>Login</a> </li>";
                 }else{
                    echo "<li class='nav-item'><a class='nav-link' href='users_area/user_logout.php'>Logout</a> </li>";
                 }
