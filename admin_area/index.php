@@ -78,10 +78,10 @@ include("../functions/commen_function.php");
                     <button><a href="index.php ? view_category" class="nav-link text-light bg-info my-1">View Categories</a></button>
                     <button><a href="index.php ? insert_brand" class="nav-link text-light bg-info my-1">Insert Brands</a></button>
                     <button><a href="index.php ? view_brands" class="nav-link text-light bg-info my-1">View Brands</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">All Orders</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">All Payments</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">List Users</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">Logout</a></button>
+                    <button><a href="./index.php?list_orders" class="nav-link text-light bg-info my-1">All Orders</a></button>
+                    <button><a href="./index.php?list_payments" class="nav-link text-light bg-info my-1">All Payments</a></button>
+                    <button><a href="./index.php?list_users" class="nav-link text-light bg-info my-1">List Users</a></button>
+                    <button><a href="./index.php?admin_login" class="nav-link text-light bg-info my-1">Logout</a></button>
                 </div>
             </div>
         </div>
@@ -121,6 +121,18 @@ include("../functions/commen_function.php");
               }
               if(isset($_GET['delete_brands'])){
                 include('delete_brands.php');
+              }
+              if(isset($_GET['list_orders'])){
+                include('list_orders.php');
+              }
+              if(isset($_GET['list_payments'])){
+                include('list_payments.php');
+              }
+              if(isset($_GET['list_users'])){
+                include('list_users.php');
+              }
+              if(isset($_GET['admin_login'])){
+                include('admin_login.php');
               }
             ?>
         </div>
