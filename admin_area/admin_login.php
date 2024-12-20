@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +45,7 @@
                     <div>
                         <input type="submit" class="bg-info py-2 px-3 border-0" name="admin_login"
                         value="Login">
-                        <p class="small fw-bold mt2 pt-1">Don't you have an account? <a href="./admin_registration.php" class="link-danger">Register</a></p>
+                        <p class="small fw-bold mt2 pt-1">Don't you have an account? <a href="./admin_registration.php?" class="link-danger">Register</a></p>
                     </div>
                 </form>
         </div>
@@ -51,3 +53,33 @@
     </div>
 </body>
 </html>
+
+<?php
+  if(isset($_POST['admin_login'])){
+    $user_username = $_POST['username'];
+    $user_password = $_POST['password'];
+
+    $select_query = "SELECT * FROM `admin_table` WHERE 	admin_name = '$user_username'";
+    $result = mysqli_query($con, $select_query);
+    $row_count = mysqli_num_rows($result);
+    $row_data = mysqli_fetch_assoc($result);
+    // $user_ip = getIPAddress();
+
+    if($row_count > 0){
+        $_SESSION['username'] = $user_username;
+        if(password_verify($user_password, $row_data['admin_password'])){
+            // echo "<script>alert('Login successfully')</script>";
+            if($row_count){
+                 $_SESSION['username'] = $user_username;
+                 echo "<script>alert('Login successfully')</script>";
+                 echo "<script>window.open('./index.php','_self')</script>";
+            }
+        }
+    }
+    else{
+        echo "<script>alert('Please enter valid data')</script>";
+    }
+  }
+
+
+?>

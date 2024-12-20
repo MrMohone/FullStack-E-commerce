@@ -1,3 +1,9 @@
+<?php
+  include("../includes/connect.php");
+  include('../functions/commen_function.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +59,7 @@
                     <div>
                         <input type="submit" class="bg-info py-2 px-3 border-0" name="admin_registratiion"
                         value="Register">
-                        <p class="small fw-bold mt2 pt-1">Do you already have an account? <a href="./admin_login.php" class="link-danger">Login</a></p>
+                        <p class="small fw-bold mt2 pt-1">Do you already have an account? <a href="./admin_login.php?" class="link-danger">Login</a></p>
                     </div>
                 </form>
         </div>
@@ -61,3 +67,30 @@
     </div>
 </body>
 </html>
+
+<?php
+if(isset($_POST['admin_registratiion'])){
+    $user_username = $_POST['username'];
+    $user_email = $_POST['Email'];
+    $user_password = $_POST['password'];
+    $password_hash = password_hash($user_password, PASSWORD_DEFAULT);
+    $conf_user_password = $_POST['confrim_password'];
+
+    $select_query = "SELECT * FROM `admin_table` WHERE admin_name = '$user_username' or admin_email = '$user_email'";
+    $result = mysqli_query($con, $select_query);
+    $row_count = mysqli_num_rows($result);
+    if($row_count > 0){
+        echo "<script> alert('Admin name and email already exist')</script>";
+    }
+    else if($user_password != $conf_user_password){
+        echo "<script> alert('Password do not match!')</script>";
+    }else{
+    //  insert query
+    $insert_query = "INSERT INTO `admin_table` (admin_name, admin_email,admin_password)
+                            VALUES ('$user_username','$user_email','$password_hash')";
+    $sql_excute = mysqli_query($con, $insert_query);
+    echo "<script> alert('You are registerd!')</script>";
+    echo "<script>window.open('./index.php','_self')</script>";
+ }
+}
+?>

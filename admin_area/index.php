@@ -1,6 +1,7 @@
 <?php
 include("../includes/connect.php");
 include("../functions/commen_function.php");
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -81,7 +82,13 @@ include("../functions/commen_function.php");
                     <button><a href="./index.php?list_orders" class="nav-link text-light bg-info my-1">All Orders</a></button>
                     <button><a href="./index.php?list_payments" class="nav-link text-light bg-info my-1">All Payments</a></button>
                     <button><a href="./index.php?list_users" class="nav-link text-light bg-info my-1">List Users</a></button>
-                    <button><a href="./index.php?admin_login" class="nav-link text-light bg-info my-1">Logout</a></button>
+                    <?php
+                     if(!isset($_SESSION['username']))
+                       echo "<button><a href='./index.php?admin_login' class='nav-link text-light bg-info my-1'>Login</a></button>";
+                      else{
+                       echo "<button><a href='./admin_logout.php' class='nav-link text-light bg-info my-1'>Logout</a></button>";
+                      }
+                     ?>
                 </div>
             </div>
         </div>
@@ -132,6 +139,7 @@ include("../functions/commen_function.php");
                 include('list_users.php');
               }
               if(isset($_GET['admin_login'])){
+
                 include('admin_login.php');
               }
             ?>

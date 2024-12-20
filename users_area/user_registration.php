@@ -110,13 +110,13 @@
         echo "<script> alert('Password do not match!')</script>";
     }else{
     //  insert query
-    move_uploaded_file($user_image_tmp, "./user_images/$user_image");
+    move_uploaded_file($user_image_tmp, "./user_images/$user_image");//x
     $insert_query = "INSERT INTO `user_table` (username, user_email, user_password,	user_image, user_ip,user_address,user_mobile)
                             VALUES ('$user_username','$user_email','$password_hash','$user_image','$user_ip','$user_address','$user_contact')";
     $sql_excute = mysqli_query($con, $insert_query);
     echo "<script> alert('You are registerd!')</script>";
  }
-//  selecting cart items
+//  selecting cart items x
    $select_cart_items = "SELECT * FROM `cart_details` WHERE ip_address = '$user_ip'";
    $result_cart = mysqli_query($con, $select_cart_items);
    $rows_count = mysqli_num_rows($result_cart);
